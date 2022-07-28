@@ -1,0 +1,12 @@
+<div *ngIf="video" class="video">
+    <div class="video-frame" [innerHtml]="video.html | safeHtml">
+        
+    </div>
+    <div class="video-text">
+        <h3>{{video.title}}</h3>
+        <div class="author">Share by: <b>{{sharer}}</b></div>
+        <div class="desc">
+            {{video.title + ' ' + video.title}}
+        </div>
+    </div>
+</div>

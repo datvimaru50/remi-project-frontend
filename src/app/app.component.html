@@ -6,44 +6,38 @@
 			<div class="logo">Remi<span>Tube</span></div>
 		</div>
 		<div class="right">
-			<input type="email" name="" id="email">
-			<input type="password" name="" id="password">
-			<button id="login">Login</button>
-			<button id="register">Register</button>
+			<ng-container *ngIf="user; else notLogin">
+				<span>Hello, {{user.user.email}}</span>
+				<button id="shareVideo" (click)="openShare()">Share a video</button>
+				<button id="logout" (click)="logOut()">Logout</button>
+			</ng-container>
+
+			<ng-template #notLogin>
+				<input #email type="email" name="" id="email">
+				<input #password type="password" name="" id="password">
+				<button id="login" (click)="login(email.value, password.value)">Login</button>
+				<button id="register" (click)="register(email.value, password.value)">Register</button>
+			</ng-template>
+			
 		</div>
 	</div>	
 </div>
+
 <div id="videos">
 	<div class="wrapper">
-		<div class="video">
-			<div class="video-frame"></div>
-			<div class="video-text">
-				<h3>Video title</h3>
-				<div class="author">Share by: <b>datvimaru50@gmail.com</b></div>
-				<div class="desc">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dicta facilis, praesentium harum itaque repellendus. Ab, cumque. Possimus fugit cum corporis iusto exercitationem temporibus debitis nulla odit expedita. Sequi, praesentium.
-				</div>
+		<div *ngIf="user && showShareForm" id="shareInput">
+			<span (click)="closePopupShare()">&#x2715;</span>
+			<h5>Enter a video URL</h5>
+
+			<div class="link-input">
+				<input type="text" [(ngModel)]="curLink" name="" id="">
+				<button id="startShare" (click)="startShareALink(curLink)">Share</button>
 			</div>
+			
 		</div>
-		<div class="video">
-			<div class="video-frame"></div>
-			<div class="video-text">
-				<h3>Video title</h3>
-				<div class="author">Share by: <b>datvimaru50@gmail.com</b></div>
-				<div class="desc">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dicta facilis, praesentium harum itaque repellendus. Ab, cumque. Possimus fugit cum corporis iusto exercitationem temporibus debitis nulla odit expedita. Sequi, praesentium.
-				</div>
-			</div>
-		</div>
-		<div class="video">
-			<div class="video-frame"></div>
-			<div class="video-text">
-				<h3>Video title</h3>
-				<div class="author">Share by: <b>datvimaru50@gmail.com</b></div>
-				<div class="desc">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dicta facilis, praesentium harum itaque repellendus. Ab, cumque. Possimus fugit cum corporis iusto exercitationem temporibus debitis nulla odit expedita. Sequi, praesentium.
-				</div>
-			</div>
-		</div>
+
+		<ng-container *ngIf="videos.length > 0">
+			<remi-video-item *ngFor="let video of videos" [url]="video.url" [sharer]="video.sharer"></remi-video-item>
+		</ng-container>
 	</div>
 </div>
