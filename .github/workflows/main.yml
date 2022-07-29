@@ -63,9 +63,9 @@ jobs:
           echo node_modules cache miss, 
           echo start installing dependencies
           npm ci
-      - name: Build
-        run: |
-          npm run build
+      # - name: Build
+      #   run: |
+      #     npm run build
 
       # Creating change log    
       - name: Conventional Changelog Action
