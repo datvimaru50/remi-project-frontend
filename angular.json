@@ -107,7 +107,7 @@
             "baseHref": "https://datvimaru50.github.io/remi-project-frontend/",
             "name": "datvimaru50",
             "email": "datvimaru50@gmail.com",
-            "noSilent": false
+            "noSilent": true
           }
         }
       }
