@@ -66,3 +66,27 @@ jobs:
       - name: Build
         run: |
           npm run build
+
+      # Creating change log    
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
+          output-file: "false"
+
+      # Creating release tag
+      - name: Create Release
+        uses: actions/create-release@v3
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
+
+      # Last step: Deploy for user use
+      - name: Deploy to Github pages
+        run: |
+          npm run deploy    

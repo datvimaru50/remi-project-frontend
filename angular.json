@@ -102,7 +102,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://datvimaru50.github.io/remi-project-frontend/",
+            "name": "datvimaru50",
+            "email": "datvimaru50@gmail.com"
+          }
         }
       }
     }
