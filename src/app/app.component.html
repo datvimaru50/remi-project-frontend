@@ -13,8 +13,8 @@
 			</ng-container>
 
 			<ng-template #notLogin>
-				<input #email type="email" name="" id="email">
-				<input #password type="password" name="" id="password">
+				<input placeholder="Email" #email type="email" name="" id="email">
+				<input placeholder="Password" #password type="password" name="" id="password">
 				<button id="login" (click)="login(email.value, password.value)">Login</button>
 				<button id="register" (click)="register(email.value, password.value)">Register</button>
 			</ng-template>
