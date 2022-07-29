@@ -85,6 +85,7 @@ input#email {
 
 #videos .wrapper {
     width: 780px;
+    padding-bottom: 100px;
 }
 
 .video {
@@ -164,3 +165,45 @@ button#startShare {
         cursor: pointer;
     }
 }
+
+// Response
+
+@media screen and (max-width: 768px) {
+    #header .wrapper, 
+    #header .wrapper .right,
+    .video{
+        flex-direction: column;
+    }
+    #header .right{
+        width: 100%;
+    }
+    #header div.wrapper,
+    #videos div.wrapper{
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    #header .right button,
+    #header input{
+        width: 100%;
+        margin-top:  10px;
+        margin-right: 0;
+        margin-left: 0;
+
+    }
+    #header .logo{
+        margin-bottom: 20px;
+    }
+
+    div.video-frame {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        height: calc( (100vw - 30px) * 9 / 16 );
+        background-color: #e2e2e2;
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+  }
