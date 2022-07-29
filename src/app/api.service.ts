@@ -33,7 +33,7 @@ export class ApiService {
     }
 
     public parseVideoUrl(url: string) {
-        return this.httpClient.request<any>('get', `http://www.youtube.com/oembed?url=${url}&format=json`);
+        return this.httpClient.request<any>('get', `https://www.youtube.com/oembed?url=${url}&format=json`);
     }
 
     public shareVideoUrl(url: string) {
