@@ -7,7 +7,7 @@ import { ApiService } from './api.service';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-	title: string = 'remi-frontend';
+	title: string = 'remi';
 	user: any;
 	showShareForm: boolean = false;
 	videos: any[] = [];
