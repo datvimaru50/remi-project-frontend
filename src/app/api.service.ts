@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, delay, map, retry, take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root',
@@ -12,7 +13,7 @@ export class ApiService {
     ) { }
 
     public login(info: any) {
-        return this.httpClient.request<any>('post', `http://localhost:3000/api/login`,
+        return this.httpClient.request<any>('post', `${environment.apiUrl}/api/login`,
             {
                 body: info,
             }
@@ -20,7 +21,7 @@ export class ApiService {
     }
 
     public register(info: any) {
-        return this.httpClient.request<any>('post', `http://localhost:3000/api/register`,
+        return this.httpClient.request<any>('post', `${environment.apiUrl}/api/register`,
             {
                 body: info,
             }
@@ -28,7 +29,7 @@ export class ApiService {
     }
 
     public getVideos() {
-        return this.httpClient.request<any>('get', `http://localhost:3000/api/videos`);
+        return this.httpClient.request<any>('get', `${environment.apiUrl}/api/videos`);
     }
 
     public parseVideoUrl(url: string) {
@@ -43,7 +44,7 @@ export class ApiService {
         } catch (error) {
             console.log(error);
         }
-        return this.httpClient.request<any>('post', `http://localhost:3000/api/video`,
+        return this.httpClient.request<any>('post', `${environment.apiUrl}/api/video`,
             {
                 body: { url },
                 headers: {
