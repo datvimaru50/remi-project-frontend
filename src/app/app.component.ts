@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
 	showShareForm: boolean = false;
 	videos: any[] = [];
 	curLink: string = '';
+	loading: boolean = false;
 
 
 	closePopupShare(){
@@ -89,8 +90,10 @@ export class AppComponent implements OnInit {
 	}
 
 	getVideos(){
+		this.loading = true;
 		this.api.getVideos().subscribe((videos: any[]) => {
 			this.videos = videos;
+			this.loading = false;
 		});
 	}
 

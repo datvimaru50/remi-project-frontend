@@ -25,6 +25,7 @@
 
 <div id="videos">
 	<div class="wrapper">
+
 		<div *ngIf="user && showShareForm" id="shareInput">
 			<span (click)="closePopupShare()">&#x2715;</span>
 			<h5>Enter a video URL</h5>
@@ -36,8 +37,13 @@
 			
 		</div>
 
-		<ng-container *ngIf="videos.length > 0">
-			<remi-video-item *ngFor="let video of videos" [url]="video.url" [sharer]="video.sharer"></remi-video-item>
-		</ng-container>
+		<loading-effect *ngIf="loading; else doneLoading"></loading-effect>
+
+		<ng-template #doneLoading>
+			<ng-container *ngIf="videos.length > 0">
+				<remi-video-item *ngFor="let video of videos" [url]="video.url" [sharer]="video.sharer"></remi-video-item>
+			</ng-container>
+		</ng-template>
+		
 	</div>
 </div>

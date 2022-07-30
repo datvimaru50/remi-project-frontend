@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RemiVideoItemComponent } from './video-item/controller.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LoadingEffectComponent } from './loading-effect/controller.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    RemiVideoItemComponent
+    RemiVideoItemComponent,
+    LoadingEffectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

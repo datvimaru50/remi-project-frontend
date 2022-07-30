@@ -1,0 +1,35 @@
+.load-video{
+    display: flex;
+    margin-bottom: 30px;
+    .load-frame{
+        width: 200px;
+        height: 113px;
+        margin-right: 15px;
+    }
+    .load-text{
+        flex: auto;
+        .load-title{
+            width: 100%;
+            height: 25px;
+            margin-bottom: 15px;
+        }
+        .load-description{
+            width: 100%;
+            height: 73px;
+        }
+    }
+}
+
+.load-animate{
+    border-radius: 3px;
+    background-image: linear-gradient(to right, #bdbdbd, #eee, #eee, #eee, #eee);
+    animation: effectLoading 1s infinite;
+}
+
+@keyframes effectLoading {
+    0%   {background-image: linear-gradient(to right, #bdbdbd, #eee, #eee, #eee, #eee);}
+    25%  {background-image: linear-gradient(to right, #eee, #bdbdbd, #eee, #eee, #eee);}
+    50%  {background-image: linear-gradient(to right, #eee, #eee, #bdbdbd, #eee, #eee);}
+    75%  {background-image: linear-gradient(to right, #eee, #eee, #eee, #bdbdbd, #eee);}
+    100% {background-image: linear-gradient(to right, #eee, #eee, #eee, #eee #bdbdbd);}
+}
